@@ -14,14 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
-Route::get('/produk', 'HomeController@detail');
-Route::get('/listProduk', 'HomeController@list');
+Route::get('/', 'customer\IndexController@index');
+Route::get('/produk/{id}', 'customer\IndexController@detail');
+Route::get('/listProduk', 'customer\IndexController@list');
 
 Route::get('/keranjang', 'CartController@index');
-Route::get('/petani', function () {
-    return view('petani.coba');
-})->middleware('petani')->name('petani');
+Route::get('/listkeranjang', 'CartController@show');
+Route::get('/checkout', 'CartController@checkout');
+
 
 
 Auth::routes();
