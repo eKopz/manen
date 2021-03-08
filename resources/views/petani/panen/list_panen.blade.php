@@ -91,7 +91,7 @@
                 </tbody>
             </table>
             </div>
-
+            </div>
         </div>
     </div>
 </div>
@@ -107,11 +107,12 @@
             </button>
         </div>
         <div class="card-body">
-            <form>
+            <form method="POST" action="/panen/list_panen/addPanen">
+                {{ csrf_field() }}
                 <div class="form-group">
                     <label for="inputEmail">Nama Produk</label>
                     <div class="input-group mb-3 ">
-                        <select class="custom-select form-control" id="inputGroupSelect01">
+                        <select name="id_produk" class="custom-select form-control" id="inputGroupSelect01">
                         @foreach ($listProduk as $item)
                             <option value="{{ $item->id }}">{{ $item->nama }}</option>
                         @endforeach
@@ -120,7 +121,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Jumlah</label>
-                    <input type="number" class="form-control" id="inputJumlah">
+                    <input type="number" name="jumlah" class="form-control" id="inputJumlah">
                 </div>
             <button type="submit" class="btn btn-success" style="margin-bottom: 20px; background-color: #558b2f;">Tambahkan</button>
             </form>       

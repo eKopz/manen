@@ -15,4 +15,15 @@ class PanenController extends Controller
         $listPanen = Panen::all();
         return view('petani.panen.list_panen', compact('listPanen', 'listProduk'));
     }
+
+    public function addPanen(Request $request)
+    {
+        Panen::create([
+            'id_petani' => 1,
+            'id_produk' => $request->id_produk,
+            'jumlah' => $request->jumlah,
+            'status' => 1
+        ]);
+        return redirect('/panen/list_panen')->with('alert-success', 'Berhasil tambah data !'); 
+    }
 }
