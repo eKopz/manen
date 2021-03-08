@@ -1,6 +1,6 @@
 @extends('templates.auth')
 
-@section('title', 'eKopz | Register')
+@section('title', 'Manen.id')
 
 @section('content')
   <div id="preloader">
@@ -18,9 +18,7 @@
                       <div class="card">
                           <div class="card-body">
                               <div class="logo text-center">
-                                  <a href="index.html">
-                                      <img src="{{ asset('assets/images/ekopz-icon.png') }}" style="width: 50px;" alt="">
-                                  </a>
+                                <img src="{{ asset('assets/images/logo/logo_coklat.png') }}" width="150">
                               </div>
                               <h4 class="text-center mt-4">Register Your Account</h4> <br>
 
