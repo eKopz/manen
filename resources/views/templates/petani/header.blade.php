@@ -115,7 +115,11 @@
             <li class="icons">
                 <a href="javascript:void(0)" class="log-user">
                     <?php // $foto = Auth::user()->foto; ?>
-                    <img src='{{ asset('assets/images/profile/1.jpg') }}' alt=""> <span>{{ Auth::user()->nama }}</span>  <i class="fa fa-caret-down f-s-14" aria-hidden="true"></i>
+                    <img src='{{ asset('assets/images/profile/1.jpg') }}' alt="">
+                        <span>
+                            {{-- {{ Auth::user()->nama }} --}}
+                        </span>  <i class="fa fa-caret-down f-s-14" aria-hidden="true">
+                    </i>
                 </a>
                 <div class="drop-down dropdown-profile animated bounceInDown">
                     <div class="dropdown-content-body">
@@ -125,10 +129,10 @@
                             <li><a href="javascript:void()"><i class="fa fa-cog"></i> <span>Setting</span></a>
                             </li>
                             <li>
-                                <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                       <i class="icon-power"></i> {{ __('Logout') }}
+                                <a href="#"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    <i class="icon-power"></i> {{ __('Logout') }}
                                 </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

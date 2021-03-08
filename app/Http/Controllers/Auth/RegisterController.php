@@ -8,6 +8,11 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Traits\ImageUpload;
+use App\Petani;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -23,6 +28,7 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+    use ImageUpload;
 
     /**
      * Where to redirect users after registration.
@@ -53,6 +59,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'foto' => ['required'],
         ]);
     }
 
@@ -64,10 +71,38 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        //upload image
+        $foto = $data['foto'];
+        $urlFoto = $this->storeImages($foto, 'user');
+
+        $user = User::create([
+            'nama' => $data['nama'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'foto' => $urlFoto,
+            'role' => $data['role'],
         ]);
+
+        if ($data['role'] == 2) {
+            Petani::create([
+                'id_user' => $user->id,
+                'norek' => ''
+            ]);
+        }
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+                    ? new JsonResponse([], 201)
+                    : redirect('/login')->with('registered-success', 'Register Berhasil, silahkan login terlebih dahulu');
     }
 }
