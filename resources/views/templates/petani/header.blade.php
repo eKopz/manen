@@ -114,10 +114,10 @@
             </li>
             <li class="icons">
                 <a href="javascript:void(0)" class="log-user">
-                    <?php // $foto = Auth::user()->foto; ?>
-                    <img src='{{ asset('assets/images/profile/1.jpg') }}' alt="">
+                    <?php  $foto = Auth::user()->foto; ?>
+                    <img src='{{$foto}}' alt="">
                         <span>
-                            {{-- {{ Auth::user()->nama }} --}}
+                            {{ Auth::user()->nama }}
                         </span>  <i class="fa fa-caret-down f-s-14" aria-hidden="true">
                     </i>
                 </a>

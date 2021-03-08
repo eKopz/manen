@@ -33,13 +33,27 @@ Route::get('/origin={city_origin}&originType=city&destination={city_destination}
 
 // Route::get('/','petani\PagesController@dashboard');
 Route::get('/panen/list_panen','petani\PanenController@getListPanen');
+Route::get('/panen/detail_panen/{id}','petani\PanenController@getDetailPanen');
+Route::get('/panen/detail_panen/selesai/{id}','petani\PanenController@selesaiPanen');
+Route::get('/panen/detail_panen/batal/{id}','petani\PanenController@batalPanen');
+Route::post('/panen/list_panen/addPanen','petani\PanenController@addPanen');
+
 Route::get('/petani/produk','petani\ProdukController@getProduk');
+
 Route::get('/peluang/peluang','petani\PagesController@peluang');
-Route::get('/transaksi/list_transaksi','petani\PagesController@list_transaksi');
-Route::get('/pendapatan/list_pendapatan','petani\PagesController@list_pendapatan');
+
+Route::get('/transaksi/list_transaksi','petani\TransaksiController@getDetailtransaksi');
+
+Route::get('/pendapatan/list_pendapatan','petani\PendapatanController@getPendapatan');
+
 Route::get('/monitoring/monitoring','petani\PagesController@monitoring');
+
 Route::get('/produk', 'HomeController@detail');
 Route::get('/listProduk', 'HomeController@list');
+
+Route::get('/keranjang', 'CartController@index');
+
+
 
 Route::get('/petani', function () {
     return view('petani.coba');

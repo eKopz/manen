@@ -26,17 +26,16 @@
 
 
     /* Fungsi convert Status Panen */
-
     function convertStatusPanen(status){
       $status = ""
       if(status == 1){
-        $status == "Dalam Proses"
+        $status = "Dalam Proses"
       }
       if (status == 2) {
-        $status == "Selesai"
+        $status = "Selesai"
       } 
       if (status == 3) {
-        $status == "Batal"
+        $status = "Batal"
       } 
       return $status
     }
