@@ -30,7 +30,7 @@
           <div class="item">
             <div class="img-ser">
               <!-- Images -->
-              <div class="thumb"> <img class="img-1" src="{{url('assets/images/').'/'.$row->foto}}" alt=""><img class="img-2" src="{{url('assets/images/').'/'.$row->foto}}" alt="">
+              <div class="thumb"> <img class="img-1" src="{{$row->foto}}" alt=""><img class="img-2" src="{{$row->foto}}" alt="">
                 <!-- Overlay  -->
                 <div class="overlay">
                   <div class="add-crt"><a href="#."><i class="icon-basket margin-right-10"></i> Add To Cart</a></div>
@@ -46,7 +46,10 @@
               </div>
               <!-- Item Details -->
               <div class="cap-text">
-                <div class="item-name"> <a href="/produk/{{ $row->id }}" class="i-tittle">{{$row->nama}}</a> <span class="price"><small>Rp. </small>{{$row->nama}}</span>
+                <div class="item-name">
+                  <a href="/produk/{{ $row->id }}" class="i-tittle">{{$row->nama}}</a>
+                  <p style="margin-top:-10px; margin-bottom:10px;">{{$row->berat}}gr / pack</p>
+                  <span class="price"><small>Rp. </small>{{$row->harga_beli}}<small> / 1 pack</small></span>
                   <p>{{$row->deskripsi}}</p>
                 </div>
               </div>
