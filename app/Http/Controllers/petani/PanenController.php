@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Produk;
 use App\Panen;
 use App\Petani;
+use App\Gudang;
 use Auth;
 
 class PanenController extends Controller
@@ -44,6 +45,12 @@ class PanenController extends Controller
         $panen = Panen::find($id);
         $panen->status = 2;
         $panen->save();
+
+        Gudang::create([
+            'id_panen' => $panen->id,
+            'jumlah' => $panen->jumlah,
+            'status'=> 1]);
+
         return redirect('/panen/list_panen')->with('alert-success', 'Data berhasil diubah !'); 
     }
 

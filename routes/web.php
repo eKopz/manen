@@ -36,7 +36,7 @@ Route::post('/panen/list_panen/addPanen','petani\PanenController@addPanen');
 
 Route::get('/petani/produk','petani\ProdukController@getProduk');
 
-Route::get('/peluang/peluang','petani\PagesController@peluang');
+Route::get('/peluang/peluang','petani\GudangController@getPeluang');
 
 Route::get('/transaksi/list_transaksi','petani\TransaksiController@getDetailtransaksi');
 

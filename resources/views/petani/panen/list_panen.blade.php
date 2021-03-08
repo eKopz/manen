@@ -20,11 +20,11 @@
 @section('content')
 <div class="col-12 mt-0">
     <div class="card-content">
-    <?php if (session('status')): ?>
+    <?php if (session('alert-success')): ?>
         <div class="alert alert-success alert-dismissible fade show">
             <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span
                     aria-hidden="true">&times;</span>
-            </button> {{ session('status') }}
+            </button> {{ session('alert-success') }}
         </div>
     <?php endif; ?>
     </div>
