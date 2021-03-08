@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Produk;
 use App\Panen;
 use App\Petani;
+use App\Gudang;
 use Auth;
 
 class PanenController extends Controller
@@ -15,7 +16,7 @@ class PanenController extends Controller
     {
         $petani = Petani::where('id_user', Auth::user()->id)->first();
         $listProduk = Produk::all();
-        $listPanen = Panen::where('id_petani',$petani->id)->orderBy('id','desc')->get();
+        $listPanen = Panen::where('id_petani', $petani->id)->orderBy('id','desc')->get();
         return view('petani.panen.list_panen', compact('listPanen', 'listProduk'));
     }
 
@@ -44,6 +45,12 @@ class PanenController extends Controller
         $panen = Panen::find($id);
         $panen->status = 2;
         $panen->save();
+
+        Gudang::create([
+            'id_panen' => $panen->id,
+            'jumlah' => $panen->jumlah,
+            'status'=> 1]);
+
         return redirect('/panen/list_panen')->with('alert-success', 'Data berhasil diubah !'); 
     }
 
