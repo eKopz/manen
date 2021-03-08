@@ -45,49 +45,35 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Pembeli</th>
-                        <th>Nama Produk</th>
+                        <th>Nama tanaman</th>
+                        <th>Jumlah</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>aldi</td>
-                    <td>20.000</td>
-                    <td>
-                        <img class="mr-3" src="{{asset('assets/icons/processing.png')}}" alt="" width="16">
-                        sedang proses
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success center">Detail</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>lifi</td>
-                    <td>20.000</td>
-                    <td>
-                        <img class="mr-3" src="{{asset('assets/icons/error.png')}}" alt="" width="16">
-                        dibatalkan
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success center">Detail</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>zaki</td>
-                    <td>20.000</td>
-                    <td>
-                        <img class="mr-3" src="{{asset('assets/icons/success.png')}}" alt="" width="16">
-                        selesai
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success center">Detail</button>
-                    </td>
-                </tr>
+                @foreach ($listPanen as $item => $value)
+                    <tr>
+                        <td>{{($item+1)}}</td>
+                        <td>{{$value->produk->nama}}</td>
+                        <td>{{$value->jumlah}}</td>
+                        <td>
+                            @if($value->status == 1)
+                                <img class="mr-3" src="{{asset('assets/icons/processing.png')}}" alt="" width="16">
+                                Sedang diproses
+                            @elseif($value->status == 2)
+                                <img class="mr-3" src="{{asset('assets/icons/success.png')}}" alt="" width="16">
+                                Selesai
+                            @elseif($value->status == 3)
+                                <img class="mr-3" src="{{asset('assets/icons/error.png')}}" alt="" width="16">
+                                Batal
+                            @endif
+                        </td>
+                        <td>
+                            <a class="btn btn-success center" href="/panen/detail_panen/{{$value->id}}">Detail</a>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
             </div>
@@ -112,7 +98,7 @@
                 <div class="form-group">
                     <label for="inputEmail">Nama Produk</label>
                     <div class="input-group mb-3 ">
-                        <select name="id_produk" class="custom-select form-control" id="inputGroupSelect01">
+                        <select name="id_produk" class="custom-select form-control" id="inputGroupSelect01" required>
                         @foreach ($listProduk as $item)
                             <option value="{{ $item->id }}">{{ $item->nama }}</option>
                         @endforeach
@@ -121,7 +107,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Jumlah</label>
-                    <input type="number" name="jumlah" class="form-control" id="inputJumlah">
+                    <input type="number" name="jumlah" class="form-control" id="inputJumlah" required>
                 </div>
             <button type="submit" class="btn btn-success" style="margin-bottom: 20px; background-color: #558b2f;">Tambahkan</button>
             </form>       
