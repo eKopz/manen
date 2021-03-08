@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="nav">
         <li class="dropdown">
-        @if (Auth::user()->id !=null)
+        @if (Auth::check())
           <a href="#." class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-user"></i> &nbsp; {{ Auth::User()->nama }} </a>
               <ul class="dropdown-menu">
                 <li> <a href="index.html">My Account</a></li>

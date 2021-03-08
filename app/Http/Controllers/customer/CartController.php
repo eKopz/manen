@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\customer;
 
+use App\Keranjang as AppKeranjang;
 use Illuminate\Http\Request;
-use App\Models\Keranjang;
+use App\Keranjang;
+use App\Produk;
 
 class CartController extends Controller
 {
