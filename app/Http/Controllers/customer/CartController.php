@@ -155,7 +155,7 @@ class CartController extends Controller
 
       if ($keranjang == null) {
         $keranjang = Keranjang::create([
-          'id_user' => $id_user
+          'id_user' => Auth::user()->id
         ]);
       }
 

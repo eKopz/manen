@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 use App\Petani;
 use App\Produk;
 use App\Panen;
-use App\Pesanan;
+use App\PesananProduk;
+use App\Gudang;
 
 class GudangController extends Controller
 {
@@ -22,10 +23,22 @@ class GudangController extends Controller
 
     public function getPeluang()
     {   
-        $pesanan = Pesanan::produk()->get();
+        $produk_pesanan = PesananProduk::distinct()->get(['id_produk']);
 
-        dd($pesanan);
+        $get_data = array();
 
-        return view('/peluang/peluang',compact('')); 
+        foreach ($produk_pesanan as $value) {
+            $gudang = Gudang::join('panen', 'panen.id', '=', 'gudang.id_panen')
+                    ->join('produk', 'produk.id', '=', 'panen.id_produk')
+                    ->where('produk.id', $value->id_produk)
+                    ->select('produk.*', 'gudang.jumlah as jumlah')
+                    ->first();
+
+            $data =  $gudang->jumlah - $value->jumlah;
+
+            array_push($get_data, $data, $gudang);
+        }
+
+        return view('petani.peluang.peluang',compact('get_data')); 
     }
 }

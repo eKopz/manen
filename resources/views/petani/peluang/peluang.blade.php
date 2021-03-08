@@ -48,12 +48,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>aldi</td>
-                    <td>20.000</td>
-                    <td>pakaian</td>
-                    <td>12</td>
-                </tr>
+                @foreach ($get_data as $item)
+                    <tr>
+                        <td>{{$item[1]->nama}}</td>
+                        <td>{{$item[0]}}</td>
+                        <td>tersedia</td>
+                        <td></td>
+                    </tr> 
+                @endforeach
+                
                 </tbody>
             </table>
             </div>

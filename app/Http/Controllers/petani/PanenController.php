@@ -16,7 +16,7 @@ class PanenController extends Controller
     {
         $petani = Petani::where('id_user', Auth::user()->id)->first();
         $listProduk = Produk::all();
-        $listPanen = Panen::where('id_petani',$petani->id)->orderBy('id','desc')->get();
+        $listPanen = Panen::where('id_petani', $petani->id)->orderBy('id','desc')->get();
         return view('petani.panen.list_panen', compact('listPanen', 'listProduk'));
     }
 
