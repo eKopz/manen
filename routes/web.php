@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'customer\IndexController@index');
+<<<<<<< HEAD
 Route::get('/produk', 'customer\IndexController@detail');
 Route::get('/listProduk', 'customer\IndexController@list');
 
@@ -23,6 +24,15 @@ Route::get('/keranjang', 'customer\CartController@index');
 Route::get('/petani', function () {
     return view('petani.coba');
 })->middleware('petani')->name('petani');
+=======
+Route::get('/produk/{id}', 'customer\IndexController@detail');
+Route::get('/listProduk', 'customer\IndexController@list');
+
+Route::get('/keranjang', 'CartController@index');
+Route::get('/listkeranjang', 'CartController@show');
+Route::get('/checkout', 'CartController@checkout');
+
+>>>>>>> master
 
 
 Auth::routes();

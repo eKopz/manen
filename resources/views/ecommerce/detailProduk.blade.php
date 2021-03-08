@@ -17,40 +17,41 @@
               <!-- Images Slider -->
               <div class="images-slider">
                 <ul class="slides">
-                  <li data-thumb="{{url('assets2/images/item-img-1-1.jpg')}}"> <img class="img-responsive" src="{{url('assets2/images/item-img-1-1.jpg')}}"  alt=""> </li>
-                  <li data-thumb="{{url('assets2/images/item-img-1-4.jpg')}}"> <img class="img-responsive" src="{{url('assets2/images/item-img-1-4.jpg')}}"  alt=""> </li>
-                  <li data-thumb="{{url('assets2/images/item-img-1-5.jpg')}}"> <img class="img-responsive" src="{{url('assets2/images/item-img-1-5.jpg')}}"  alt=""> </li>
+                  <li data-thumb="{{url('assets/images/').'/'.$detail->foto}}"> <img class="img-responsive" src="{{url('assets/images/').'/'.$detail->foto}}"  alt=""> </li>
                 </ul>
               </div>
             </div>
 
             <!-- COntent -->
             <div class="col-md-5">
-              <h4>Rise Skinny Jeans</h4>
-              <p style="margin-top:-20px;">250gr/pack</p>
-              <span class="price"><small>$</small>299</span>
+              <h4>{{ $detail->nama }}</h4>
+              <p style="margin-top:-20px;">{{$detail->berat}}gr/pack</p>
+              <span class="price"><small>Rp. </small>{{$detail->harga_beli}} <small> / 1 Pack</small> </span>
               <ul class="item-owner">
-                <li>Category:<span> <a href="#">women</a></span></li>
+                <li>Kategori :<span> <a href="#">{{ $detail->kategori}}</a></span></li>
               </ul>
 
               <!-- Item Detail -->
-              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,</p>
+              <p>{{$detail->deskripsi}}</p>
 
               <!-- Short By -->
               <div class="some-info">
                 <ul class="row margin-top-30">
                   <li class="col-md-6">
-
+                    <form action="/keranjang" method="POST">
+                    @csrf
                     <!-- Quantity -->
                     <div class="quinty">
                       <button type="button" class="quantity-left-minus"  data-type="minus" data-field=""> <span>-</span> </button>
                       <input type="number" id="quantity" name="quantity" class="form-control input-number" value="1">
+                      <input type="hidden" name="product_id" value="{{ $detail->id }}" class="form-control">
                       <button type="button" class="quantity-right-plus" data-type="plus" data-field=""> <span>+</span> </button>
                     </div>
                   </li>
 
                   <!-- ADD TO CART -->
                   <li class="col-md-6"> <a href="/keranjang" class="btn">ADD TO CART</a> </li>
+                  </form>
                 </ul>
               </div>
             </div>
@@ -70,11 +71,11 @@
 
         <!-- Popular Item Slide -->
         <div class="papular-block block-slide">
-
+          @foreach ($related as $row)
           <!-- Item -->
           <div class="item">
             <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="{{url('assets2/images/item-img-1-1.jpg')}}" alt="" > <img class="img-2" src="{{url('assets2/images/item-img-1-1-1.jpg')}}" alt="" >
+            <div class="item-img"> <img class="img-1" src="{{url('assets/images/').'/'.$row->foto}}" alt="" > <img class="img-2" src="{{url('assets/images/').'/'.$row->foto}}" alt="" >
               <!-- Overlay -->
               <div class="overlay">
                 <div class="position-bottom">
@@ -83,139 +84,13 @@
               </div>
             </div>
             <!-- Item Name -->
-            <div class="item-name"> <a href="#.">Mid Rise Skinny Jeans </a>
-              <p>Lorem ipsum dolor sit amet</p>
+            <div class="item-name"> <a href="#.">{{$row->nama}}</a>
+              <p>{{$row->berat}}gr / pack</p>
             </div>
             <!-- Price -->
-            <span class="price"><small>$</small>299</span> </div>
-
-          <!-- Item -->
-          <div class="item">
-            <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="{{url('assets2/images/item-img-1-2.jpg')}}" alt="" > <img class="img-2" src="{{url('assets2/images/item-img-1-2-1.jpg')}}" alt="" >
-              <!-- Overlay -->
-              <div class="overlay">
-                <div class="position-bottom">
-                  <div class="inn"><a href="#." data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-basket"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <!-- Item Name -->
-            <div class="item-name"> <a href="#.">Mid Rise Skinny Jeans </a>
-              <p>Lorem ipsum dolor sit amet</p>
-            </div>
-            <!-- Price -->
-            <span class="price"><small>$</small>299</span> </div>
-
-          <!-- Item -->
-          <div class="item">
-            <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="{{url('assets2/images/item-img-1-3.jpg')}}" alt="" > <img class="img-2" src="{{url('assets2/images/item-img-1-3-1.jpg')}}" alt="" >
-              <!-- Overlay -->
-              <div class="overlay">
-                <div class="position-bottom">
-                  <div class="inn"><a href="#." data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-basket"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <!-- Item Name -->
-            <div class="item-name"> <a href="#.">Mid Rise Skinny Jeans </a>
-              <p>Lorem ipsum dolor sit amet</p>
-            </div>
-            <!-- Price -->
-            <span class="price"><small>$</small>299</span> </div>
-
-          <!-- Item -->
-          <div class="item">
-            <!-- Sale -->
-            <div class="on-sale"> Sale </div>
-            <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="{{url('assets2/images/item-img-1-4.jpg')}}" alt="" > <img class="img-2" src="{{url('assets2/images/item-img-1-4-1.jpg')}}" alt="" >
-              <!-- Overlay -->
-              <div class="overlay">
-                <div class="position-bottom">
-                  <div class="inn"><a href="#." data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-basket"></i></a></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Item Name -->
-            <div class="item-name"> <a href="#.">Mid Rise Skinny Jeans </a>
-              <p>Lorem ipsum dolor sit amet</p>
-            </div>
-            <!-- Price -->
-            <span class="price"><small>$</small><span class="line-through">299.00</span> <small>$</small>199.00</span> </div>
-          <!-- Item -->
-          <div class="item">
-            <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="{{url('assets2/images/item-img-1-5.jpg')}}" alt="" > <img class="img-2" src="{{url('assets2/images/item-img-1-5-1.jpg')}}" alt="" >
-              <!-- Overlay -->
-              <div class="overlay">
-                <div class="position-bottom">
-                  <div class="inn"><a href="#." data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-basket"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <!-- Item Name -->
-            <div class="item-name"> <a href="#.">Mid Rise Skinny Jeans </a>
-              <p>Lorem ipsum dolor sit amet</p>
-            </div>
-            <!-- Price -->
-            <span class="price"><small>$</small>299</span> </div>
-
-          <!-- Item -->
-          <div class="item">
-            <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="{{url('assets2/images/item-img-1-6.jpg')}}" alt="" > <img class="img-2" src="{{url('assets2/images/item-img-1-6-1.jpg')}}" alt="" >
-              <!-- Overlay -->
-              <div class="overlay">
-                <div class="position-bottom">
-                  <div class="inn"><a href="#." data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-basket"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <!-- Item Name -->
-            <div class="item-name"> <a href="#.">Mid Rise Skinny Jeans </a>
-              <p>Lorem ipsum dolor sit amet</p>
-            </div>
-            <!-- Price -->
-            <span class="price"><small>$</small>299</span> </div>
-
-          <!-- Item -->
-          <div class="item">
-            <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="{{url('assets2/images/item-img-1-7.jpg')}}" alt="" > <img class="img-2" src="{{url('assets2/images/item-img-1-7-1.jpg')}}" alt="" >
-              <!-- Overlay -->
-              <div class="overlay">
-                <div class="position-bottom">
-                  <div class="inn"><a href="#." data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-basket"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <!-- Item Name -->
-            <div class="item-name"> <a href="#.">Mid Rise Skinny Jeans </a>
-              <p>Lorem ipsum dolor sit amet</p>
-            </div>
-            <!-- Price -->
-            <span class="price"><small>$</small>299</span> </div>
-
-          <!-- Item -->
-          <div class="item">
-            <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="{{url('assets2/images/item-img-1-8.jpg')}}" alt="" > <img class="img-2" src="{{url('assets2/images/item-img-1-8-1.jpg')}}" alt="" >
-              <!-- Overlay -->
-              <div class="overlay">
-                <div class="position-bottom">
-                  <div class="inn"><a href="#." data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-basket"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <!-- Item Name -->
-            <div class="item-name"> <a href="#.">Mid Rise Skinny Jeans </a>
-              <p>Lorem ipsum dolor sit amet</p>
-            </div>
-            <!-- Price -->
-            <span class="price"><small>$</small>299</span> </div>
+            <span class="price"><small>Rp. </small>{{$row->harga_beli}} <small>/ 1 pack</small></span>
+          </div>
+          @endforeach
         </div>
       </div>
   </section>
