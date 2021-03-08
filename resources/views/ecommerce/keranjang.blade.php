@@ -19,13 +19,13 @@
               </tr>
             </thead>
             <tbody>
-              {{-- @foreach ($produk as $row) --}}
+              @foreach ($keranjang_produk as $row)
               <tr>
                 <th class="text-left"> <!-- Media Image -->
                   <a href="#." class="item-img"> <img class="media-object" src="{{url('assets2/images/item-img-1-1.jpg')}}" alt=""> </a>
                   <!-- Item Name -->
                   <div class="media-body">
-                    {{-- <span>{{$row->nama}}</span> --}}
+                    <span>{{$row->produk->nama}}</span>
                     <p>Lorem ipsum dolor sit amet</p>
                   </div>
                 </th>
@@ -38,7 +38,7 @@
                 <td><span class="price"><small>$</small>299</span></td>
                 <td><a href="#."><i class="icon-close"></i></a></td>
               </tr>
-              {{-- @endforeach --}}
+              @endforeach
             </tbody>
           </table>
         </div>
