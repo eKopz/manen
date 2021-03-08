@@ -155,11 +155,14 @@ class CartController extends Controller
 
       if ($keranjang == null) {
         $keranjang = Keranjang::create([
-          'id_user' => $id_user
+          'id_user' => Auth::user()->id
         ]);
       }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> a14288465a511f05c52bfda2c0ee3b1032697bcc
       if ($keranjang->produk() == null) {
         $keranjang_produk = DB::table('keranjang_produk')->insert([
         'id_produk' => $produk->id,
@@ -169,11 +172,17 @@ class CartController extends Controller
         // $keranjang->produk()->attach($produk->id, [
         //   'jumlah' => $request->jumlah
         // ]);
+<<<<<<< HEAD
+      }
+      $keranjang_produk = KeranjangProduk::where('id_produk', $produk->id)->where('id_keranjang', $keranjang->id)->first();
+
+=======
 
       }
       $keranjang_produk = KeranjangProduk::where('id_produk', $produk->id)->where('id_keranjang', $keranjang->id)->first();
 
 
+>>>>>>> a14288465a511f05c52bfda2c0ee3b1032697bcc
       if ($keranjang_produk->count() > 0) {
         $keranjang_produk->jumlah += $request->jumlah;
 

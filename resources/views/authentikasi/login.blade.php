@@ -1,6 +1,6 @@
 @extends('templates.auth')
 
-@section('title', 'eKopz | Login')
+@section('title', 'Manen.id | Login')
 
 @section('content')
   <div id="preloader">
@@ -18,11 +18,9 @@
                       <div class="card">
                           <div class="card-body">
                               <div class="logo text-center">
-                                  <a href="index.html">
-                                      <img src="{{ asset('assets/images/ekopz-icon.png') }}" style="width: 50px;" alt="">
-                                  </a>
+                                    <img src="{{ asset('assets/images/logo/logo_coklat.png') }}" width="150">
                               </div>
-                              <h4 class="text-center mt-4">Log into Your Account</h4> <br>
+                              <h4 class="text-center mt-5">Log into Your Account</h4> <br>
 
                               <?php if (Session::has('alert-danger')): ?>
                                 <div class="alert alert-danger">
@@ -75,17 +73,6 @@
                                 </div>
                               </form>
                               <div class="text-center">
-                                  <h5 class="mb-5">Or with Login</h5>
-                                  <ul class="list-inline">
-                                      <li class="list-inline-item m-t-10"><a href="javascript:void()" class="btn btn-facebook"><i class="fa fa-facebook"></i></a>
-                                      </li>
-                                      <li class="list-inline-item m-t-10"><a href="javascript:void()" class="btn btn-twitter"><i class="fa fa-twitter"></i></a>
-                                      </li>
-                                      <li class="list-inline-item m-t-10"><a href="javascript:void()" class="btn btn-linkedin"><i class="fa fa-linkedin"></i></a>
-                                      </li>
-                                      <li class="list-inline-item m-t-10"><a href="javascript:void()" class="btn btn-google-plus"><i class="fa fa-google-plus"></i></a>
-                                      </li>
-                                  </ul>
                                   <p class="mt-5">Dont have an account? <a href="/register">Register Now</a>
                                   </p>
                               </div>
