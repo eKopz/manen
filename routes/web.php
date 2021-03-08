@@ -23,9 +23,10 @@ Route::get('/keranjang', 'customer\CartController@index');
 Route::get('/produk/{id}', 'customer\IndexController@detail');
 Route::get('/listProduk', 'customer\IndexController@list');
 
-Route::get('/keranjang', 'CartController@index');
-Route::get('/listkeranjang', 'CartController@show');
-Route::get('/checkout', 'CartController@checkout');
+Route::get('/keranjang', 'customer\CartController@index');
+Route::get('/listkeranjang', 'customer\CartController@show');
+Route::post('/keranjang/tambah/{id}', 'customer\CartController@addKeranjang');
+Route::get('/checkout', 'customer\CartController@checkout');
 
 // Route::get('/','petani\PagesController@dashboard');
 Route::get('/panen/list_panen','petani\PanenController@getListPanen');
