@@ -58,15 +58,17 @@ class CartController extends Controller
         ]);
       }
 
-      if ($keranjang->produk()->get()->contains($produk->id)) {
-        $keranjang->produk()->updateExistingPivot($produk->id, [
-          'jumlah' => $request->jumlah + $keranjang->produk()->where('id_produk', $produk->id)->first()->pivot->jumlah
-        ]);
-      } else {
+      if ($keranjang->produk()->get() == null) {
         $keranjang->produk()->attach($produk->id, [
           'jumlah' => $request->jumlah
         ]);
       }
+
+      if ($keranjang->produk()->get()->contains($produk->id)) {
+        $keranjang->produk()->updateExistingPivot($produk->id, [
+          'jumlah' => $request->jumlah + $keranjang->produk()->where('id_produk', $produk->id)->first()->pivot->jumlah
+        ]);
+      } 
 
       return redirect('/listkeranjang');
 
