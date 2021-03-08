@@ -4,21 +4,30 @@ namespace App\Http\Controllers\customer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
   public function index()
   {
-    return view('ecommerce.home');
+    $produk = DB::table('produk')->limit(6)->get();
+    $buah = DB::table('produk')->where('id_kategori', '=', '2')->get();
+    return view('ecommerce.home',compact('produk','buah'));
   }
 
-  public function detail()
+  public function detail($id)
   {
-    return view('ecommerce.detailProduk');
+    $detail = DB::table('produk')
+              ->join('kategori', 'produk.id_kategori', '=', 'kategori.id')
+              ->select('produk.*', 'kategori.nama as kategori')
+              ->where('produk.id', '=', $id)->first();
+    $related = DB::table('produk')->limit(8)->get();
+    return view('ecommerce.detailProduk',compact('detail','related'));
   }
 
   public function list()
   {
-    return view('ecommerce.listProduk');
+    $produk = DB::table('produk')->paginate(12);
+    return view('ecommerce.listProduk',compact('produk'));
   }
 }
