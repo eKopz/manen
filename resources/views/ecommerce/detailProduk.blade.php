@@ -17,7 +17,7 @@
               <!-- Images Slider -->
               <div class="images-slider">
                 <ul class="slides">
-                  <li data-thumb="{{url('assets/images/').'/'.$detail->foto}}"> <img class="img-responsive" src="{{url('assets/images/').'/'.$detail->foto}}"  alt=""> </li>
+                  <li data-thumb="{{$detail->foto}}"> <img class="img-responsive" src="{{$detail->foto}}"  alt=""> </li>
                 </ul>
               </div>
             </div>
@@ -75,7 +75,7 @@
           <!-- Item -->
           <div class="item">
             <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="{{url('assets/images/').'/'.$row->foto}}" alt="" > <img class="img-2" src="{{url('assets/images/').'/'.$row->foto}}" alt="" >
+            <div class="item-img"> <img class="img-1" src="{{$row->foto}}" alt="" > <img class="img-2" src="{{$row->foto}}" alt="" >
               <!-- Overlay -->
               <div class="overlay">
                 <div class="position-bottom">

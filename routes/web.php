@@ -16,11 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'customer\IndexController@index');
 Route::get('/produk/{id}', 'customer\IndexController@detail');
-Route::get('/listProduk', 'customer\IndexController@list');
+Route::get('/list', 'customer\IndexController@list');
 
-Route::get('/keranjang', 'CartController@index');
-Route::get('/listkeranjang', 'CartController@show');
-Route::get('/checkout', 'CartController@checkout');
+Route::get('/keranjang', 'customer\CartController@index');
+Route::get('/listkeranjang', 'customer\CartController@show');
+Route::get('/checkout', 'customer\CartController@checkout');
+Route::get('province','customer\CartController@get_province')->name('province');
+Route::get('/kota/{id}','customer\CartController@get_city');
+Route::get('/kecamatan/{id}','customer\CartController@get_subdistrict');
+Route::get('/origin={city_origin}&originType=city&destination={city_destination}&destinationType=city&weight={weight}&courier={courier}','customer\CartController@get_ongkir');
 
 // Route::get('/','petani\PagesController@dashboard');
 Route::get('/panen/list_panen','petani\PanenController@getListPanen');
@@ -32,12 +36,9 @@ Route::get('/monitoring/monitoring','petani\PagesController@monitoring');
 Route::get('/produk', 'HomeController@detail');
 Route::get('/listProduk', 'HomeController@list');
 
-Route::get('/keranjang', 'CartController@index');
-
 Route::get('/petani', function () {
     return view('petani.coba');
 })->middleware('petani')->name('petani');
 
 
 Auth::routes();
-

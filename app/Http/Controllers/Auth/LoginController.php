@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Auth;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -84,3 +85,4 @@ class LoginController extends Controller
             ? new JsonResponse([], 204)
             : redirect('/login')->with('alert-success', 'berhasil logout');
     }
+  }

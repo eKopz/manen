@@ -18,7 +18,7 @@
       <div class="item">
         <div class="img-ser">
           <!-- Images -->
-          <img class="img-1" src="{{url('assets/images/').'/'.$row->foto}}" alt=""> <img class="img-2" src="{{url('assets/images/').'/'.$row->foto}}" alt="">
+          <img class="img-1" src="{{$row->foto}}" alt=""> <img class="img-2" src="{{$row->foto}}" alt="">
           <!-- Overlay  -->
           <div class="overlay">
             <div class="add-crt"><a href="#."><i class="icon-basket margin-right-10"></i> Add To Cart</a></div>
@@ -31,7 +31,7 @@
     </div>
 
     <!-- View All Items -->
-    <div class="text-center margin-top-30"> <a href="/listProduk" class="btn margin-right-20">SEE MORE</a> </div>
+    <div class="text-center margin-top-30"> <a href="/list" class="btn margin-right-20">SEE MORE</a> </div>
   </div>
 </section>
 
@@ -70,7 +70,7 @@
       <!-- Item -->
       <div class="item">
         <!-- Item img -->
-        <div class="item-img"> <img class="img-1" src="{{url('assets/images/').'/'.$rw->foto}}" alt="" > <img class="img-2" src="{{url('assets/images/').'/'.$rw->foto}}" alt="" >
+        <div class="item-img"> <img class="img-1" src="{{$rw->foto}}" alt="" > <img class="img-2" src="{{$rw->foto}}" alt="" >
           <!-- Overlay -->
           <div class="overlay">
             <div class="position-bottom">
