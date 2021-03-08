@@ -6,9 +6,6 @@
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span></span> </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="nav">
-<<<<<<< HEAD
-        <li> <a href="/login">LOGIN/REGISTER</a> </li>
-=======
         <li class="dropdown">
         @if (Auth::user()->id !=null)
           <a href="#." class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-user"></i> &nbsp; {{ Auth::User()->nama }} </a>
@@ -28,7 +25,6 @@
         @endif
 
         </li>
->>>>>>> master
       </ul>
     </div>
 
