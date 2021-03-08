@@ -31,7 +31,7 @@
     </div>
 
     <!-- View All Items -->
-    <div class="text-center margin-top-30"> <a href="/listProduk" class="btn margin-right-20">SEE MORE</a> </div>
+    <div class="text-center margin-top-30"> <a href="/list" class="btn margin-right-20">SEE MORE</a> </div>
   </div>
 </section>
 
