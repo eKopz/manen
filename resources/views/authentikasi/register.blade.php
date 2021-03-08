@@ -38,7 +38,7 @@
                                 </div>
                               <?php endif; ?>
 
-                              <form class="mt-5 mb-5" action="/register/proses" method="post">
+                              <form class="mt-5 mb-5" action="{{ route('register') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label>{{ __('Nama') }}</label>

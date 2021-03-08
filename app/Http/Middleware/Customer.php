@@ -17,7 +17,7 @@ class Customer
     public function handle($request, Closure $next)
     {
         if (!Auth::check()) {
-            return redirect()->route('login');
+            return redirect()->route('login')->with('alert-danger', 'login terlebih dahulu');
         }
 
         if (Auth::user()->role == 1) {
@@ -25,11 +25,11 @@ class Customer
         }
 
         if (Auth::user()->role == 2) {
-            return redirect()->route('petani');
+            return $next($request);
         }
 
         if (Auth::user()->role == 3) {
-            return redirect()->route('admin');
+            return $next($request);
         }
     }
 }

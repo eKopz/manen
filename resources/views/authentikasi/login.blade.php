@@ -24,9 +24,9 @@
                               </div>
                               <h4 class="text-center mt-4">Log into Your Account</h4> <br>
 
-                              <?php if (Session::has('alert')): ?>
+                              <?php if (Session::has('alert-danger')): ?>
                                 <div class="alert alert-danger">
-                                  {{Session::get('alert')}}
+                                  {{Session::get('alert-danger')}}
                                 </div>
                               <?php elseif (Session::has('alert-success')): ?>
                                 <div class="alert alert-success">
@@ -38,7 +38,7 @@
                                 </div>
                               <?php endif; ?>
 
-                              <form class="mt-5 mb-5" action="/login/proses" method="post">
+                              <form class="mt-5 mb-5" action="{{ route('login') }}" method="post">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label>{{ __('E-Mail Address') }}</label>

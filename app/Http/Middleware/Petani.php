@@ -17,11 +17,11 @@ class Petani
     public function handle($request, Closure $next)
     {
         if (!Auth::check()) {
-            return redirect()->route('login');
+            return redirect()->route('login')->with('alert-danger', 'login terlebih dahulu');
         }
 
         if (Auth::user()->role == 1) {
-            return redirect()->route('customer');
+            return redirect()->route('customer')->with('alert-danger', 'user ini tidak terdaftar sebagai petani');
         }
 
         if (Auth::user()->role == 2) {
@@ -29,7 +29,7 @@ class Petani
         }
 
         if (Auth::user()->role == 3) {
-            return redirect()->route('admin');
+            return redirect()->route('admin')->with('alert-danger', 'user ini tidak terdaftar sebagai admin');
         }
 
         

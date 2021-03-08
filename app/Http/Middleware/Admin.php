@@ -17,15 +17,15 @@ class Admin
     public function handle($request, Closure $next)
     {
         if (!Auth::check()) {
-            return redirect()->route('login');
+            return redirect()->route('login')->with('alert-danger', 'login terlebih dahulu');
         }
 
         if (Auth::user()->role == 1) {
-            return redirect()->route('customer');
+            return redirect()->route('customer')->with('alert-danger', 'user ini tidak terdaftar sebagai customer');
         }
 
         if (Auth::user()->role == 2) {
-            return redirect()->route('petani');
+            return redirect()->route('petani')->with('alert-danger', 'user ini tidak terdaftar sebagai petani');
         }
 
         if (Auth::user()->role == 3) {

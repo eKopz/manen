@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/petani', function () {
     return view('petani.coba');
-});
+})->middleware('petani')->name('petani');
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
