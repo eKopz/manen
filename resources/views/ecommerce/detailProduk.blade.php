@@ -25,7 +25,7 @@
             <!-- COntent -->
             <div class="col-md-5">
               <h4>{{ $detail->nama }}</h4>
-              <p style="margin-top:-20px;">{{$detail->berat}}gr/pack</p>
+              <p style="margin-top:-20px;">{{$detail->berat}} gr / pack</p>
               <span class="price"><small>Rp. </small>{{$detail->harga_beli}} <small> / 1 Pack</small> </span>
               <ul class="item-owner">
                 <li>Kategori :<span> <a href="#">{{ $detail->kategori}}</a></span></li>
@@ -79,13 +79,13 @@
               <!-- Overlay -->
               <div class="overlay">
                 <div class="position-bottom">
-                  <div class="inn"><a href="#." data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-basket"></i></a></div>
+                  <div class="inn"><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-basket"></i></a></div>
                 </div>
               </div>
             </div>
             <!-- Item Name -->
-            <div class="item-name"> <a href="#.">{{$row->nama}}</a>
-              <p>{{$row->berat}}gr / pack</p>
+            <div class="item-name"> <a href="/produk/{{$row->id}}">{{$row->nama}}</a>
+              <p>{{$row->berat}} gr / pack</p>
             </div>
             <!-- Price -->
             <span class="price"><small>Rp. </small>{{$row->harga_beli}} <small>/ 1 pack</small></span>

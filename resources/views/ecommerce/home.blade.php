@@ -25,7 +25,7 @@
           </div>
         </div>
         <!-- Item Name -->
-        <div class="item-name"> <a href="/produk" class="i-tittle">{{$row->nama}}</a> <span class="price"><small>Rp.</small>{{ $row->harga_beli }}</span> <a class="deta animated fadeInRight" href="/produk">View Detail</a> </div>
+        <div class="item-name"> <a href="/produk/{{$row->id}}" class="i-tittle">{{$row->nama}}</a> <span class="price"><small>Rp.</small>{{ $row->harga_beli }}</span> <a class="deta animated fadeInRight" href="/produk/{{$row->id}}">View Detail</a> </div>
       </div>
       @endforeach
     </div>
@@ -80,7 +80,7 @@
         </div>
 
         <!-- Item Name -->
-        <div class="item-name"> <a href="#.">{{$rw->nama}} </a>
+        <div class="item-name"> <a href="/produk/{{$rw->id}}">{{$rw->nama}} </a>
           <p>{{$rw->berat}}gr / pack</p>
         </div>
         <!-- Price -->
