@@ -14,11 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
-Route::get('/produk', 'HomeController@detail');
-Route::get('/listProduk', 'HomeController@list');
+Route::get('/', 'customer\IndexController@index');
+Route::get('/produk', 'customer\IndexController@detail');
+Route::get('/listProduk', 'customer\IndexController@list');
 
-Route::get('/keranjang', 'CartController@index');
+Route::get('/keranjang', 'customer\CartController@index');
+
 Route::get('/petani', function () {
     return view('petani.coba');
 })->middleware('petani')->name('petani');

@@ -6,7 +6,7 @@
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span></span> </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="nav">
-        <li> <a href="about-us_01.html">LOGIN/REGISTER</a> </li>
+        <li> <a href="/login">LOGIN/REGISTER</a> </li>
       </ul>
     </div>
 
