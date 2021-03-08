@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('petani.coba');
-});
+Route::get('/', 'HomeController@index');
+Route::get('/produk', 'HomeController@detail');
+Route::get('/listProduk', 'HomeController@list');
+
+Route::get('/keranjang', 'CartController@index');
