@@ -34,5 +34,11 @@ class Produk extends Model
     {
         return $this->belongsToMany('App\Pesanan', 'pesanan_produk', 'id_produk', 'id_pesanan');
     }
-    
+
+    public function keranjang_produk()
+    {
+        return $this->hasMany('App\KeranjangProduk');
+    }
+
+
 }
