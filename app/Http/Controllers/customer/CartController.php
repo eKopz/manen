@@ -4,6 +4,7 @@ namespace App\Http\Controllers\customer;
 
 use App\Http\Controllers\Controller;
 use App\Keranjang;
+use App\Pesanan;
 use Illuminate\Http\Request;
 use App\Produk;
 use Illuminate\Support\Facades\Auth;
@@ -71,8 +72,32 @@ class CartController extends Controller
 
   }
 
-  public function checkout()
+  public function checkout(Request $request)
   {
+      $keranjang = Keranjang::where('id_user', Auth::user()->id)->first();
 
+      $pesanan = Pesanan::create([
+        'id_user' => Auth::user()->id,
+        'id_prov' => $request->id_prov,
+        'id_kota' => $request->id_kota,
+        'id_kecamatan' => $request->id_kecamatan,
+        'status' => 1,
+        'total' => 0,
+        'bukti_pembayaran' => ''
+      ]);
+
+      foreach ($keranjang->produk()->get() as $value) {
+        $pesanan->produk()->attach($value->id, [
+          'jumlah' => $keranjang->barang()->where('id_barang', $value->id)->first()->pivot->jumlah,
+        ]);
+
+        $keranjang->produk()->detach($value->id);
+      }
+
+      foreach ($pesanan->produk()->get() as $value) {
+        $value->stok -= $value->pivot->jumlah; 
+
+        $value->save();
+      }
   }
 }
