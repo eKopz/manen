@@ -15,11 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'customer\IndexController@index');
-Route::get('/produk', 'customer\IndexController@detail');
-Route::get('/listProduk', 'customer\IndexController@list');
-
-Route::get('/keranjang', 'customer\CartController@index');
-
 Route::get('/produk/{id}', 'customer\IndexController@detail');
 Route::get('/listProduk', 'customer\IndexController@list');
 

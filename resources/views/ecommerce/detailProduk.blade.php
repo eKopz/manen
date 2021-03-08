@@ -38,8 +38,8 @@
               <div class="some-info">
                 <ul class="row margin-top-30">
                   <li class="col-md-6">
-                    <form action="/keranjang" method="POST">
-                    @csrf
+                    {{-- <form action="/keranjang" method="POST">
+                    @csrf --}}
                     <!-- Quantity -->
                     <div class="quinty">
                       <button type="button" class="quantity-left-minus"  data-type="minus" data-field=""> <span>-</span> </button>
@@ -51,7 +51,7 @@
 
                   <!-- ADD TO CART -->
                   <li class="col-md-6"> <a href="/keranjang" class="btn">ADD TO CART</a> </li>
-                  </form>
+                  {{-- </form> --}}
                 </ul>
               </div>
             </div>
