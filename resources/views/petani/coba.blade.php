@@ -1,4 +1,4 @@
-@extends('templates.index')
+@extends('templates.petani.index')
 
 @section('title', 'ekopz | Koperasi')
 

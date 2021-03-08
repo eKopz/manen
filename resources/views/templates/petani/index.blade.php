@@ -58,7 +58,7 @@
             Header start
         ***********************************-->
         <div class="header">
-            @include('templates.header')
+            @include('templates.petani.header')
         </div>
         <!--**********************************
             Header end
@@ -68,7 +68,7 @@
             Sidebar start
         ***********************************-->
         <div class="nk-sidebar">
-            @include('templates.sidebar')
+            @include('templates.petani.sidebar')
         </div>
         <!--**********************************
             Sidebar end
@@ -95,7 +95,7 @@
             Footer start
         ***********************************-->
         <div class="footer">
-            @include('templates.footer')
+            @include('templates.petani.footer')
         </div>
         <!--**********************************
             Footer end
@@ -109,7 +109,7 @@
             <a class="sidebar-right-trigger" href="javascript:void(0)">
                 <span><i class="mdi mdi-tune"></i></span>
             </a>
-            @include('templates.right_sidebar')
+            @include('templates.petani.right_sidebar')
         </div>
         <!--**********************************
             Right sidebar end
@@ -123,7 +123,7 @@
         js assets start
     ***********************************-->
     
-    @include('templates.js')
+    @include('templates.petani.js')
 
     <!--**********************************
         js assets End 

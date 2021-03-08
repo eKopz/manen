@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,9 @@ Route::get('/produk', 'HomeController@detail');
 Route::get('/listProduk', 'HomeController@list');
 
 Route::get('/keranjang', 'CartController@index');
+Route::get('/petani', function () {
+    return view('petani.coba');
+})->middleware('petani')->name('petani');
+
+
+Auth::routes();
