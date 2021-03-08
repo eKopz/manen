@@ -38,20 +38,20 @@
               <div class="some-info">
                 <ul class="row margin-top-30">
                   <li class="col-md-6">
-                    {{-- <form action="/keranjang" method="POST">
-                    @csrf --}}
+                    <form action="/keranjang/tambah/{{$detail->id}}" method="POST">
+                    @csrf
                     <!-- Quantity -->
                     <div class="quinty">
                       <button type="button" class="quantity-left-minus"  data-type="minus" data-field=""> <span>-</span> </button>
-                      <input type="number" id="quantity" name="quantity" class="form-control input-number" value="1">
+                      <input type="number" id="quantity" name="jumlah" class="form-control input-number" value="1">
                       <input type="hidden" name="product_id" value="{{ $detail->id }}" class="form-control">
                       <button type="button" class="quantity-right-plus" data-type="plus" data-field=""> <span>+</span> </button>
                     </div>
                   </li>
 
                   <!-- ADD TO CART -->
-                  <li class="col-md-6"> <a href="/keranjang" class="btn">ADD TO CART</a> </li>
-                  {{-- </form> --}}
+                  <li class="col-md-6"> <input type="submit" name="cart" value="ADD TO CART" class="btn"></li>
+                  </form>
                 </ul>
               </div>
             </div>

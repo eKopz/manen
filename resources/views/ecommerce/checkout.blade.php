@@ -233,7 +233,7 @@ integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anon
   let weight = $("input[name=weight]").val();
   if(courier){
     jQuery.ajax({
-      url:"/origin="+origin+"&destination="+destination+"&weight="+weight+"&courier="+courier,
+      url:"/origin="+origin+"&originType=city&destination="+destination+"&destinationType=city&weight="+weight+"&courier="+courier,
       type:'GET',
       dataType:'json',
       success:function(data){
