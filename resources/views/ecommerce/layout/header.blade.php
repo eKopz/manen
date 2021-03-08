@@ -12,7 +12,7 @@
               <ul class="dropdown-menu">
                 <li> <a href="index.html">My Account</a></li>
                 <li> <a href="index-1.html">Konfirmasi Pembayaran</a> </li>
-                <li> <a href="index-2.html">Status Pemesanan</a></li>
+                <li> <a href="/pesanan">Status Pemesanan</a></li>
                 <li>
                   <a href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -33,20 +33,6 @@
       <ul class="navbar-right">
         <!-- USER BASKET -->
         <li> <a href="/listkeranjang"><i class="lnr lnr-cart"></i> </a> </li>
-        <!-- SEARCH BAR -->
-        <li> <a href="javascript:void(0);" class="search-open"><i class="lnr lnr-magnifier"></i></a>
-          <div class="search-inside animated bounceInUp"> <i class="icon-close search-close"></i>
-            <div class="search-overlay"></div>
-            <div class="position-center-center">
-              <div class="search">
-                <form>
-                  <input type="search" placeholder="Search Shop">
-                  <button type="submit"><i class="icon-check"></i></button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </li>
       </ul>
     </div>
   </nav>
