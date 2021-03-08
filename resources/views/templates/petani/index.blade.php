@@ -7,12 +7,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>@yield('title')</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/ekopz-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/logo/logo_white.png') }}">
     <!-- Custom Stylesheet -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/plugins/pickadate/themes/default.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/pickadate/themes/default.date.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/jquery-steps//css/jquery.steps.css') }}">
+    <script src="{{ asset('assets/plugins/jquery-steps/build/jquery.steps.min.js') }}"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 </head>
@@ -42,8 +44,8 @@
         <!--**********************************
             Nav header start
         ***********************************-->
-        <div class="nav-header">
-            <div class="brand-logo"><a href="index.html"><b><img src="{{asset('assets/images/ekopz-admin.png')}}" alt="" style="width: 100px; margin-top: 10px;"> </b></a>
+        <div class="nav-header" class="">
+            <div class="brand-logo mb-2"><a href="coba.html"><b><img src="{{asset('assets/images/logo/logo_white.png')}}" alt="" style="width: 120px; margin-top: 10px;"> </b></a>
             </div>
             <div class="nav-control">
                 <div class="hamburger"><span class="line"></span>  <span class="line"></span>  <span class="line"></span>
@@ -157,6 +159,16 @@
         $('.js-example-placeholder-multiple').select2({
             placeholder: "Select a state"
         });
+    </script>
+
+    <script >
+        $('#tambahPanenModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        var modal = $(this)
+        modal.find('.modal-title').text('New message to ' + recipient)
+        modal.find('.modal-body input').val(recipient)
+        })
     </script>
 
 </body>

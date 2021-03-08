@@ -14,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/','petani\PagesController@dashboard');
+Route::get('/panen/list_panen','petani\PagesController@list_panen');
+Route::get('/peluang/peluang','petani\PagesController@peluang');
+Route::get('/transaksi/list_transaksi','petani\PagesController@list_transaksi');
+Route::get('/pendapatan/list_pendapatan','petani\PagesController@list_pendapatan');
+Route::get('/monitoring/monitoring','petani\PagesController@monitoring');
+Route::get('/', 'HomeController@index');
+Route::get('/produk', 'HomeController@detail');
+Route::get('/listProduk', 'HomeController@list');
+
+Route::get('/keranjang', 'CartController@index');
 Route::get('/petani', function () {
     return view('petani.coba');
 })->middleware('petani')->name('petani');
@@ -21,3 +32,10 @@ Route::get('/petani', function () {
 
 Auth::routes();
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
