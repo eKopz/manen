@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\petani;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Produk;
 use App\Panen;
-use Auth;
 
 class PanenController extends Controller
 {
     public function getListPanen()
     {
-        $listPanen = Panen::where('id_petani', )->get();
+        $listProduk = Produk::all();
+        $listPanen = Panen::all();
+        return view('petani.panen.list_panen', compact('listPanen', 'listProduk'));
     }
 }

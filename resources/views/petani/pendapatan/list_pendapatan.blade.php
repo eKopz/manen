@@ -1,4 +1,4 @@
-@extends('petani.templates.index')
+@extends('.templates.petani.index')
 
 @section('title', 'Manen.id')
 

@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','petani\PagesController@dashboard');
-Route::get('/panen/list_panen','petani\PagesController@list_panen');
+Route::get('/panen/list_panen','petani\PanenController@getListPanen');
+Route::get('/petani/produk','petani\ProdukController@getProduk');
 Route::get('/peluang/peluang','petani\PagesController@peluang');
 Route::get('/transaksi/list_transaksi','petani\PagesController@list_transaksi');
 Route::get('/pendapatan/list_pendapatan','petani\PagesController@list_pendapatan');
