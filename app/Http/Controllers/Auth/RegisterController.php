@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Traits\ImageUpload;
+use App\Petani;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -79,13 +80,20 @@ class RegisterController extends Controller
         $foto = $data['foto'];
         $urlFoto = $this->storeImages($foto, 'user');
 
-        return User::create([
+        $user = User::create([
             'nama' => $data['nama'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'foto' => $urlFoto,
             'role' => $data['role'],
         ]);
+
+        if ($data['role'] == 2) {
+            Petani::create([
+                'id_user' => $user->id,
+                'norek' => ''
+            ]);
+        }
     }
 
     public function register(Request $request)
