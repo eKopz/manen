@@ -51,6 +51,11 @@ class RegisterController extends Controller
         return view('authentikasi.register');
     }
 
+    public function showRegistrationForm()
+    {
+        return view('authentikasi.register');
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
