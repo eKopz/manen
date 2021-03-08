@@ -23,6 +23,24 @@
       rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
       return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
     }
+
+
+    /* Fungsi convert Status Panen */
+
+    function convertStatusPanen(status){
+      $status = ""
+      if(status == 1){
+        $status == "Dalam Proses"
+      }
+      if (status == 2) {
+        $status == "Selesai"
+      } 
+      if (status == 3) {
+        $status == "Batal"
+      } 
+      return $status
+    }
+
   </script>
 
   <script type="text/javascript">
