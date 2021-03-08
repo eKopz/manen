@@ -8,7 +8,7 @@ class Petani extends Model
 {
     protected $table = "petani";
 
-    protected $fillable = ['id_user', 'no_rek'];
+    protected $fillable = ['id_user', 'no_rek', 'alamat', 'kota'];
 
     public function user()
     {

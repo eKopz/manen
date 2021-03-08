@@ -8,7 +8,7 @@ class Pesanan extends Model
 {
     protected $table = "pesanan";
 
-    protected $fillable = ['id_user', 'id_prov', 'id_kota', 'id_kecamatan', 'status', 'total', 'bukti_pembayaran'];
+    protected $fillable = ['id_user', 'alamat', 'notlp',' kodepos', 'status', 'total', 'bukti_pembayaran'];
 
     public function user()
     {

@@ -19,25 +19,32 @@
               </tr>
             </thead>
             <tbody>
+              <div style="display: none">
+                    	{{ $total = 0 }}
+              </div>
               @foreach ($keranjang_produk as $row)
               <tr>
                 <th class="text-left"> <!-- Media Image -->
-                  <a href="#." class="item-img"> <img class="media-object" src="{{url('assets2/images/item-img-1-1.jpg')}}" alt=""> </a>
+                  <a href="#." class="item-img"> <img class="media-object" src="{{$row->produk->foto}}" alt=""> </a>
                   <!-- Item Name -->
                   <div class="media-body">
                     <span>{{$row->produk->nama}}</span>
-                    <p>Lorem ipsum dolor sit amet</p>
+                    <p>{{$row->produk->berat}}gr/pack</p>
                   </div>
                 </th>
-                <td><span class="price"><small>$</small>299</span></td>
+                <td><span class="price"><small>Rp. </small>{{$row->produk->harga_beli}} <small> / 1 pack</small> </span></td>
                 <td>
-                <div class="quantity">
+                  <span>{{$row->jumlah}}</span>
+                {{-- <div class="quantity">
                           <input type="number" min="1" max="100" step="1" value="1" class="form-control qty">
-                        </div>
+                        </div> --}}
                 </td>
-                <td><span class="price"><small>$</small>299</span></td>
-                <td><a href="#."><i class="icon-close"></i></a></td>
+                <td><span class="price"><small>Rp. </small>{{ $row->jumlah*$row->produk->harga_beli }}</span></td>
+                <td>
+                  <a href="/keranjang/delete/{{ $row->id}}"> <i class="icon-close"></i></a>
+                </td>
               </tr>
+              <div style="display: none">{{$total += ($row->jumlah*$row->produk->harga_beli) }}</div>
               @endforeach
             </tbody>
           </table>
@@ -68,14 +75,14 @@
               <h6>Grand Total</h6>
               <div class="grand-total">
                 <div class="order-detail">
-                  <p>Skinny Jeans <span>$598 </span></p>
-                  <p>Shirts Skinny <span>$199 </span></p>
-                  <p>Shoes White Pair <span> $139</span></p>
+                  @foreach ($keranjang_produk as $key)
+                    <p>{{ $key->produk->nama }} <span>Rp.{{$row->jumlah*$row->produk->harga_beli}} </span></p>
+                  @endforeach
 
                   <!-- SUB TOTAL -->
-                  <p class="all-total">TOTAL COST <span> $998</span></p>
+                  <p class="all-total">TOTAL COST <span> Rp. {{number_format($total)}}</span></p>
                 </div>
-                <a href="/checkout" class="btn margin-top-20">Checkout</a> </div>
+                <a href="/checkout/{{$keranjang->id}}" class="btn margin-top-20">Checkout</a> </div>
             </div>
           </div>
         </div>

@@ -16,9 +16,10 @@ class CreatePetaniTable extends Migration
         Schema::create('petani', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user');
+            $table->string('kota')->nullable();
+            $table->string('alamat')->nullable();
             $table->string('norek')->nullable();
             $table->timestamps();
-
             $table->foreign('id_user')->references('id')->on('users');
         });
     }

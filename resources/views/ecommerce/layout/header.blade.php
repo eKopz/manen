@@ -32,7 +32,7 @@
     <div class="nav-right">
       <ul class="navbar-right">
         <!-- USER BASKET -->
-        <li> <a href="shopping-cart.html"><span class="c-no">2</span><i class="lnr lnr-cart"></i> </a> </li>
+        <li> <a href="/listkeranjang"><i class="lnr lnr-cart"></i> </a> </li>
         <!-- SEARCH BAR -->
         <li> <a href="javascript:void(0);" class="search-open"><i class="lnr lnr-magnifier"></i></a>
           <div class="search-inside animated bounceInUp"> <i class="icon-close search-close"></i>
