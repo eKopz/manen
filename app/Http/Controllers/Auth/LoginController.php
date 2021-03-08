@@ -70,6 +70,8 @@ class LoginController extends Controller
             break;
         }
     }
+    
+    //asdasasdasdasd
 
     public function logout(Request $request)
     {
@@ -86,5 +88,13 @@ class LoginController extends Controller
         return $request->wantsJson()
             ? new JsonResponse([], 204)
             : redirect('/login')->with('alert-success', 'berhasil logout');
+    }
+
+    public function login(Request $request)
+    {
+        //asdasdaasd
+        //asdasdad
+        //asdasd
+        //asdasd
     }
 }
