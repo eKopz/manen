@@ -2,7 +2,7 @@
     <ul class="metismenu" id="menu">
         <li class="nav-label" style="color: #000">Menu</li>
         <li class="mega-menu mega-menu-lg">
-            <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+            <a class="has-arrow" href="/petani" aria-expanded="false">
                 <i class="mdi mdi-home"></i><span class="nav-text">Dashboard</span>
             </a>
         </li>
