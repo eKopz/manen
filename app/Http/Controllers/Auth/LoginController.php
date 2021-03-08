@@ -37,4 +37,61 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function showLoginForm()
+    {
+        return view('authentikasi.login');
+    }
+
+    public function redirectTo()
+    {
+        switch (Auth::user()->role) {
+            case 1:
+                $this->redirectTo = '/';
+                return $this->redirectTo;
+            break;
+
+            case 2:
+                $this->redirectTo = '/petani';
+                return $this->redirectTo;
+            break;
+
+            case 3:
+                $this->redirectTo = '/admin';
+                return $this->redirectTo;
+            break;
+
+            default:
+                $this->redirectTo = '/login';
+                return $this->redirectTo;
+            break;
+        }
+    }
+    
+    //asdasasdasdasd
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        if ($response = $this->loggedOut($request)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 204)
+            : redirect('/login')->with('alert-success', 'berhasil logout');
+    }
+
+    public function login(Request $request)
+    {
+        //asdasdaasd
+        //asdasdad
+        //asdasd
+        //asdasd
+    }
 }
