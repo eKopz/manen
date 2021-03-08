@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Traits\ImageUpload;
+use App\Petani;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -46,11 +47,6 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function showRegistrationForm()
-    {
-        return view('authentikasi.register');
-    }
-
     /**
      * Get a validator for an incoming registration request.
      *
@@ -60,7 +56,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nama' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'foto' => ['required'],
@@ -79,13 +75,20 @@ class RegisterController extends Controller
         $foto = $data['foto'];
         $urlFoto = $this->storeImages($foto, 'user');
 
-        return User::create([
+        $user = User::create([
             'nama' => $data['nama'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'foto' => $urlFoto,
             'role' => $data['role'],
         ]);
+
+        if ($data['role'] == 2) {
+            Petani::create([
+                'id_user' => $user->id,
+                'norek' => ''
+            ]);
+        }
     }
 
     public function register(Request $request)

@@ -14,7 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','petani\PagesController@dashboard');
+Route::get('/', 'customer\IndexController@index');
+Route::get('/produk', 'customer\IndexController@detail');
+Route::get('/listProduk', 'customer\IndexController@list');
+
+Route::get('/keranjang', 'customer\CartController@index');
+
+Route::get('/produk/{id}', 'customer\IndexController@detail');
+Route::get('/listProduk', 'customer\IndexController@list');
+
+Route::get('/keranjang', 'CartController@index');
+Route::get('/listkeranjang', 'CartController@show');
+Route::get('/checkout', 'CartController@checkout');
+
+// Route::get('/','petani\PagesController@dashboard');
 Route::get('/panen/list_panen','petani\PanenController@getListPanen');
 
 Route::get('/petani/produk','petani\ProdukController@getProduk');

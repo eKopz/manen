@@ -19,12 +19,13 @@
               </tr>
             </thead>
             <tbody>
+              {{-- @foreach ($produk as $row) --}}
               <tr>
                 <th class="text-left"> <!-- Media Image -->
                   <a href="#." class="item-img"> <img class="media-object" src="{{url('assets2/images/item-img-1-1.jpg')}}" alt=""> </a>
                   <!-- Item Name -->
                   <div class="media-body">
-                    <span>Rise Skinny Jeans</span>
+                    {{-- <span>{{$row->nama}}</span> --}}
                     <p>Lorem ipsum dolor sit amet</p>
                   </div>
                 </th>
@@ -37,41 +38,7 @@
                 <td><span class="price"><small>$</small>299</span></td>
                 <td><a href="#."><i class="icon-close"></i></a></td>
               </tr>
-              <tr>
-                <th class="text-left">
-                <!-- Media Image -->
-                  <a href="#." class="item-img"> <img class="media-object" src="{{url('assets2/images/item-img-1-4.jpg')}}" alt=""> </a>
-                  <!-- Item Name -->
-                  <div class="media-body">
-                    <span>Rise Skinny Jeans</span>
-                    <p>Lorem ipsum dolor sit amet</p>
-                  </div>
-                </th>
-                <td><span class="price"><small>$</small>299</span></td>
-                <td><div class="quantity">
-                          <input type="number" min="1" max="100" step="1" value="1" class="form-control qty">
-                        </div></td>
-                <td><span class="price"><small>$</small>299</span></td>
-                <td><a href="#."><i class="icon-close"></i></a></td>
-              </tr>
-
-              <tr>
-                <th class="text-left"> <!-- Media Image -->
-                  <a href="#." class="item-img"> <img class="media-object" src="{{url('assets2/images/item-img-1-2.jpg')}}" alt=""> </a>
-                  <!-- Item Name -->
-                  <div class="media-body">
-                    <span>Rise Skinny Jeans</span>
-                    <p>Lorem ipsum dolor sit amet</p>
-                  </div>
-                </th>
-                <td><span class="price"><small>$</small>299</span></td>
-                <td><div class="quantity">
-                          <input type="number" min="1" max="100" step="1" value="1" class="form-control qty">
-                        </div></td>
-                <td><span class="price"><small>$</small>299</span></td>
-                <td><a href="#."><i class="icon-close"></i></a></td>
-              </tr>
-
+              {{-- @endforeach --}}
             </tbody>
           </table>
         </div>
@@ -108,7 +75,7 @@
                   <!-- SUB TOTAL -->
                   <p class="all-total">TOTAL COST <span> $998</span></p>
                 </div>
-                <a href="#." class="btn margin-top-20">Proceed to checkout</a> </div>
+                <a href="/checkout" class="btn margin-top-20">Checkout</a> </div>
             </div>
           </div>
         </div>
