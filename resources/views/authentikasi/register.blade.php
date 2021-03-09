@@ -72,6 +72,29 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label>{{ __('Alamat Kota / Kabupaten') }}</label>
+                                    <select class="form-control" name="kota" id="kota">
+                                      <option value="bandung">Bandung</option>
+                                      <option value="palangkaraya">Palangkaraya</option>
+                                      <option value="jakarta">Jakarta</option>
+                                      <option value="yogyakarta">Yogyakarta</option>
+                                      <option value="banten">Banten</option>
+                                      <option value="padang">Padang</option>
+                                      <option value="surabaya">Surabaya</option>
+                                      <option value="semarang">Semarang</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>{{ __('Detail Alamat') }}</label>
+                                    <input id="alamat" type="text" class="form-control" name="alamat" value="{{ old('alamat') }}" placeholder="Detail Alamat">
+
+                                    @error('alamat')
+                                      <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
                                     <label>{{ __('Foto') }}</label>
                                     <input id="foto" type="file" class="form-control" name="foto" value="{{ old('foto') }}" placeholder="foto">
 
