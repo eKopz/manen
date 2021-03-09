@@ -12,7 +12,7 @@ class PendapatanController extends Controller
 {
     public function getPendapatan(){
         $petani = Petani::where('id_user', Auth::user()->id)->first();
-        $detailPendapatan = Pendapatan::where('id_petani',$petani->id)->get();
-        return view('petani.pendapatan.list_pendapatan',compact('detailPendapatan'));
+        $listPendapatan = Pendapatan::where('id_petani',$petani->id)->orderBy('id','desc')->get();
+        return view('petani.pendapatan.list_pendapatan',compact('listPendapatan'));
     }
 }
