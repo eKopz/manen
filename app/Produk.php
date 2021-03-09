@@ -40,5 +40,10 @@ class Produk extends Model
         return $this->hasMany('App\KeranjangProduk');
     }
 
+    public function pesanan_produk()
+    {
+        return $this->hasMany('App\PesananProduk');
+    }
+
 
 }

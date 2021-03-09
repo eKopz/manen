@@ -1,6 +1,6 @@
 @extends('templates.auth')
 
-@section('title', 'eKopz | Register')
+@section('title', 'Manen.id')
 
 @section('content')
   <div id="preloader">
@@ -18,9 +18,7 @@
                       <div class="card">
                           <div class="card-body">
                               <div class="logo text-center">
-                                  <a href="index.html">
-                                      <img src="{{ asset('assets/images/ekopz-icon.png') }}" style="width: 50px;" alt="">
-                                  </a>
+                                <img src="{{ asset('assets/images/logo/logo_coklat.png') }}" width="150">
                               </div>
                               <h4 class="text-center mt-4">Register Your Account</h4> <br>
 
@@ -69,6 +67,29 @@
                                     <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" placeholder="Repeat Password">
 
                                     @error('password_confirmation')
+                                      <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label>{{ __('Alamat Kota / Kabupaten') }}</label>
+                                    <select class="form-control" name="kota" id="kota">
+                                      <option value="bandung">Bandung</option>
+                                      <option value="palangkaraya">Palangkaraya</option>
+                                      <option value="jakarta">Jakarta</option>
+                                      <option value="yogyakarta">Yogyakarta</option>
+                                      <option value="banten">Banten</option>
+                                      <option value="padang">Padang</option>
+                                      <option value="surabaya">Surabaya</option>
+                                      <option value="semarang">Semarang</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>{{ __('Detail Alamat') }}</label>
+                                    <input id="alamat" type="text" class="form-control" name="alamat" value="{{ old('alamat') }}" placeholder="Detail Alamat">
+
+                                    @error('alamat')
                                       <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>

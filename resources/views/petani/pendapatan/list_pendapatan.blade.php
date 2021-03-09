@@ -4,7 +4,7 @@
 
 @section('content-title')
     <div class="col p-0">
-        <h4 class="text-success">List Panen</h4>
+        <h4 class="text-success">Pendapatan</h4>
         {{-- <h4>Hello {{ Auth::user()->name }}, <span>Selamat Datang di aplikasi Ekopz</span></h4> --}}
     </div>
     <div class="col p-0">
@@ -29,35 +29,86 @@
     <?php endif; ?>
     </div>
     <div class="card">
-        <div class="card-header pb-0">
-            <h4 class="card-title">List Panen</h4>
-        </div>
+
         <div class="card-body">
 
-            <div class="table-responsive">
-            <a href="/produk/tambah" class="btn btn-rounded btn-success" style="margin-bottom: 20px; background-color: #558b2f;"><span class="btn-icon-left text-success">
-            <i class="fa fa-plus color-info"></i> </span>Tambah Panen</a>
+            <div class="row">
+                <div class="col-xl-3 col-sm-6">
+                    <div class="card stat-widget-five">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="icon mr-3 mt-3 bg-success">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </div>
+                                <div class="media-body text-right">
+                                    <h2 class="mt-0 mb-2 text-success">
+                                        {{ $listPendapatan->sum('nominal') }}
+                                    </h2>
+                                    <span class="text-pale-sky">Total Pendapatan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <table class="example-style display" style="min-width: 845px; color: black;">
-                <thead>
-                    <tr>
-                        <th>Nama Produk</th>
-                        <th>Jumlah</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>aldi</td>
-                    <td>20.000</td>
-                    <td>pakaian</td>
-                    <td>12</td>
-                </tr>
-                </tbody>
-            </table>
+                <div class="col-xl-3 col-sm-6">
+                    <div class="card stat-widget-five">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="icon mr-3 mt-3 bg-info">
+                                    <i class="fa fa-money"></i>
+                                </div>
+                                <div class="media-body text-info">
+                                    <h2 class="mt-0 mb-2 text-info">
+                                        {{ $listPendapatan->sum('nominal')/$listPendapatan->count()}}
+                                    </h2>
+                                    <span class="text-pale-sky">Rata Rata Pendapatan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-padded market-capital table-responsive-fix-big">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tanggal</th>
+                            <th>Pendapatan</th>
+                            <th>Statistik</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        @foreach ($listPendapatan as $item => $value)
+                        <tr>
+                            <td>
+                            <span class="text-pale-sky">{{ ($item)+1 }}</span>
+                            </td>
+                            <td>{{$value->created_at}}</td>
+                            <td>
+                            <span class="text-pale-sky">{{$value->nominal}}</span>
+                            </td>
+                            <td>
+                                @if($listPendapatan->sum('nominal')/$listPendapatan->count() < $value->nominal)
+                                <i class="fa fa-sort-up text-success mr-4"></i>
+                                @else
+                                <i class="fa fa-sort-down text-danger mr-4"></i>
+                                @endif
+                                {{ ($value->nominal / ($listPendapatan->sum('nominal')/$listPendapatan->count()))*100}}
+                                </span>
+                            </td>
+                        </tr>  
+                        @endforeach
+
+                    </tbody>
+                </table>
             </div>
         </div>
+
     </div>
 </div>
 @endsection

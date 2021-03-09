@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>@yield('title')</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/ekopz-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/logo/logo_white.png') }}">
     <!-- Custom Stylesheet -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
