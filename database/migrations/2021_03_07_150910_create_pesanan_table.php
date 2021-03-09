@@ -16,9 +16,9 @@ class CreatePesananTable extends Migration
         Schema::create('pesanan', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user');
-            $table->integer('id_prov');
-            $table->integer('id_kota');
-            $table->integer('id_kecamatan');
+            $table->string('alamat')->nullable();
+            $table->string('notlp')->nullable();
+            $table->string('kodepos')->nullable();
             $table->integer('status');
             $table->integer('total');
             $table->string('bukti_pembayaran')->nullable();

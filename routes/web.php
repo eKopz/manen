@@ -21,13 +21,11 @@ Route::get('/list', 'customer\IndexController@list');
 Route::get('/keranjang', 'customer\CartController@index');
 Route::get('/listkeranjang', 'customer\CartController@show');
 Route::post('/keranjang/tambah/{id}', 'customer\CartController@addKeranjang');
+Route::get('/keranjang/delete/{id}', 'customer\CartController@destroy');
 
-Route::get('/checkout', 'customer\CartController@checkout');
-Route::get('province','customer\CartController@get_province')->name('province');
-Route::get('/kota/{id}','customer\CartController@get_city');
-Route::get('/kecamatan/{id}','customer\CartController@get_subdistrict');
-Route::get('/origin={city_origin}&originType=city&destination={city_destination}&destinationType=city&weight={weight}&courier={courier}','customer\CartController@get_ongkir');
-
+Route::get('/checkout/{id}', 'customer\CartController@checkout');
+Route::post('/proses', 'customer\CartController@pesanan');
+Route::get('/pesanan', 'customer\PesananController@index');
 
 
 
